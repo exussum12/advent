@@ -47,11 +47,6 @@ class One
         return $sum;
     }
 
-    /**
-     * @param string $line
-     * @param int $sum
-     * @return int
-     */
     private function extractSum(string $line, int $sum): int
     {
         $matches = [];
