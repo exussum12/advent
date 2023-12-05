@@ -16,7 +16,7 @@ class ThreeTest extends TestCase
     public function testPartTwo()
     {
         $three = new Three();
-        $this->assertEquals(467835, $three->gears(__DIR__ . '/../assets/three'));
+        $this->assertEquals(467835, $three->gears(__DIR__ . '/assets/three'));
     }
 
 }
