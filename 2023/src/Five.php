@@ -48,6 +48,7 @@ class Five
             $seed = $combo[0];
             do {
                 $currentNumber = $seed;
+                $plus = PHP_INT_MAX;
                 $found = false;
                 foreach ($lines as $line) {
                     $parts = explode(' ', trim($line));
@@ -62,11 +63,13 @@ class Five
                     if ($currentNumber >= $start && $currentNumber <= ($start + $count)) {
                         $found = true;
                         $base = (int)$base;
+                        $plus = max(min($plus, ($start+$count) - $currentNumber) , 1);
                         $currentNumber = $base + ($currentNumber - $start);
                     }
                 }
-                $location = min($currentNumber, $location);
-            } while(++$seed < ($combo[0] + $combo[1]));
+                $location = min($currentNumber,  $location);
+                $seed += $plus;
+            } while($seed <= ($combo[0] + $combo[1]));
         }
 
         return $location;
